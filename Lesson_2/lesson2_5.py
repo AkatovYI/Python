@@ -16,8 +16,8 @@ while True:
         res_n = int(res)
         i = 0
         for el in my_list:
-            if el <= res_n:
-                my_list.insert(i, res_n)
+            if el < res_n:
+                my_list.insert(i, float(res_n))
                 print(my_list)
                 break
             else:
