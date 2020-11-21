@@ -6,10 +6,10 @@
 # проверить значения атрибутов, вызвать методы экземпляров).
 
 class Worker():
-    def __init__(self, wage, bonus):
-        self.name = ''
-        self.surname = ''
-        self.position = ''
+    def __init__(self, name, surname, position, wage, bonus):
+        self.name = name
+        self.surname = surname
+        self.position = position
         self._income = {'wage': wage, 'bonus': bonus}
 
 
@@ -23,9 +23,9 @@ class Position(Worker):
                 f'{self._income.get("wage") + self._income.get("bonus")}')
 
 
-work = Position(20, 10)
-work.name = 'Иван'
-work.surname = 'Иванов'
-work.position = 'программист'
-print(work.get_full_name())
-print(work.get_total_income())
+work1 = Position('Иван', 'Иванов', 'программист', 20, 10)
+work2 = Position('Петр', 'Петров', 'начальник', 40, 20)
+print(work1.get_full_name())
+print(work1.get_total_income())
+print(work2.get_full_name())
+print(work2.get_total_income())

@@ -8,11 +8,11 @@
 # Выполните вызов методов и также покажите результат.
 
 class Car():
-    def __init__(self):
-        self.speed = 0
-        self.color = ''
-        self.name = ''
-        self.is_police = False
+    def __init__(self, speed, color, name, is_police=False):
+        self.speed = speed
+        self.color = color
+        self.name = name
+        self.is_police = is_police
 
     def go(self):
         print('Машина поехала')
@@ -28,11 +28,6 @@ class Car():
 
 
 class TownCar(Car):
-    def __init__(self):
-        super().__init__()
-        self.speed = 60
-        self.color = 'Зеленый'
-        self.name = 'TownCar'
 
     def show_speed(self):
         print(f'Скорость машины превышает 60 км - {self.speed}') if self.speed > 60 else \
@@ -40,11 +35,6 @@ class TownCar(Car):
 
 
 class WorkCar(Car):
-    def __init__(self):
-        super().__init__()
-        self.speed = 40
-        self.color = 'Синий'
-        self.name = 'WorkCar'
 
     def show_speed(self):
         print(f'Скорость машины превышает 40 км - {self.speed}') if self.speed > 40 else \
@@ -52,23 +42,14 @@ class WorkCar(Car):
 
 
 class SportCar(Car):
-    def __init__(self):
-        super().__init__()
-        self.speed = 200
-        self.color = 'Красный'
-        self.name = 'SportCar'
+    pass
 
 
 class PoliceCar(Car):
-    def __init__(self):
-        super().__init__()
-        self.speed = 100
-        self.color = 'Белый'
-        self.name = 'PoliceCar'
-        self.is_police = True
+    pass
 
 
-t = TownCar()
+t = TownCar(60, 'Зеленый', 'TownCar')
 print(f'Имя машины: {t.name}, цвет машины: {t.color}, машина является полицейской: ', 'Да' if t.is_police else 'Нет')
 print(f'Максимально разрешённая скорость для машины: {t.speed}')
 t.speed = 80
@@ -79,7 +60,7 @@ t.turn('право')
 t.stop()
 print('')
 
-t = WorkCar()
+t = WorkCar(40, 'Синий', 'WorkCar')
 print(f'Имя машины: {t.name}, цвет машины: {t.color}, машина является полицейской: ', 'Да' if t.is_police else 'Нет')
 print(f'Максимально разрешённая скорость для машины: {t.speed}')
 t.speed = 80
@@ -90,7 +71,7 @@ t.turn('лево')
 t.stop()
 print('')
 
-t = SportCar()
+t = SportCar(240, 'Красный', 'SportCar')
 print(f'Имя машины: {t.name}, цвет машины: {t.color}, машина является полицейской: ', 'Да' if t.is_police else 'Нет')
 print(f'Максимально разрешённая скорость для машины: {t.speed}')
 t.speed = 80
@@ -101,7 +82,7 @@ t.turn('зад')
 t.stop()
 print('')
 
-t = PoliceCar()
+t = PoliceCar(150, 'Белый', 'PoliceCar', True)
 print(f'Имя машины: {t.name}, цвет машины: {t.color}, машина является полицейской: ', 'Да' if t.is_police else 'Нет')
 print(f'Максимально разрешённая скорость для машины: {t.speed}')
 t.speed = 80
